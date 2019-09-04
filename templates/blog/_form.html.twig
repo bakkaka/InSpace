@@ -1,0 +1,89 @@
+
+<div>
+   {{ form_start(form, {'attr': {'class': 'form-horizontal', 'novalidate' : 'novalidate'}}) }}
+
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+    <div class="form-group">
+
+        {{ form_label(form.title, "Title :", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.title) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+      <div class="form-group">
+    {% if form.publishedAt is defined %}
+      {{ form_label(form.publishedAt, "Publié a :", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+      {{ form_errors(form.publishedAt) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.publishedAt, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+        {% endif %}
+
+
+	<div class="form-group">
+      {{ form_label(form.author, "Author :", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+      {{ form_errors(form.author) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.author, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+
+	<div class="form-group">
+      {{ form_label(form.content, "Content :", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+      {{ form_errors(form.content) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+	
+	<div class="form-group">
+      {{ form_label(form.image, "Image :", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+      {{ form_errors(form.image) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+      </div>
+	 </div>
+
+        <div class="form-group">
+
+            {{ form_label(form.heartCount, "Hearted :", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            {{ form_errors(form.heartCount) }}
+            <div class="col-sm-4">
+                {{ form_widget(form.heartCount, {'attr': {'class': 'form-control'}}) }}
+            </div>
+	
+	
+    {#<div class="form-group">
+
+        {{ form_label(form.location, "Your location :", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.location) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.location, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+
+        {%  if form.specificLocationName is defined %}
+            {{ form_row(form.specificLocationName) }}
+        {% endif %}
+    </div>#}
+
+
+
+
+
+
+
+            <input type="submit" class="btn" value="Create"/>
+            {#{{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}#}
+  {{ form_rest(form) }}
+  
+  {# Fermeture de la balise <form> du formulaire HTML #}
+  {{ form_end(form) }}
+</div>
+
+

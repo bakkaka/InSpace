@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Article{% endblock %}
+
+{% block body %}
+<div class="col-sm-12">
+
+
+    {{ include('blog/_form.html.twig') }}
+   
+    <a href="{{ path('blog') }}">back to list</a>
+
+
+
+
+
+<div>
+
+{% endblock %}

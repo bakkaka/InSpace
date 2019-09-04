@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1>Editer un Bien ?</h1>
+
+
+
+    <hr>
+
+    {{ include('admin/property/_form.html.twig', {
+        button_text: 'Update!'
+    }) }}
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="row">
+        <div class="col-md-7 js-rep-log-table">
+            <h2>
+                Lift History
+                <a href="#list-stuff-form" class="btn btn-md btn-success pull-right">
+                    <span class="fa fa-plus"></span> Add
+                </a>
+            </h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Email</th>
+                    <th>Full name</th>
+                    {#<th>Role</th>#}
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                {#{{ include('lift/_repRow.html.twig') }}
+                {% else %}
+                    <tr>
+                        <td colspan="4">Get liftin'!</td>
+                    </tr>#}
+                    <tr>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.fullName }}</td>
+                       {#<td>{{ user.roles }}</td>#}
+                        <td>
+                            <a href="{{ path('user_delete', {'id': user.id }) }}">
+                               Delete
+                            </a>
+                        </td>
+
+
+
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                <tr>
+
+                </tr>
+                </tfoot>
+            </table>
+            <div class="js-new-rep-log-form-wrapper">
+                {{ include('registration/register.html.twig') }}
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="leaderboard">
+                <h2 class="text-center"><img class="dumbbell" src="{{ asset('assets/images/dumbbell.png') }}">Leaderboard</h2>
+    {#{{ include('lift/_leaderboard.html.twig') }}#}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{#{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/RepLogApp.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            var $wrapper = $('.js-rep-log-table');
+            var repLogApp = new RepLogApp($wrapper);
+        });
+    </script>
+{% endblock %}#}

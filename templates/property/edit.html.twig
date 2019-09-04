@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <h1>Edit Propery ?</h1>
+
+
+
+    <hr>
+
+    {{ include('property/_form.html.twig', {
+        button_text: 'Update!'
+    }) }}
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    
+{% endblock %}

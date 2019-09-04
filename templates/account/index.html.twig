@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Manage Account{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('css/account.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row user-menu-container square">
+            <div class="col-md-12 user-details">
+                <div class="row spacepurplebg white">
+                    <div class="col-md-2 no-pad">
+                        <div class="user-image">
+                            {#<img src="{{ asset(app.author.image.webPath) }}" width="150px;" height="150px;" class="img-responsive thumbnail">#}
+                            <img src="https://robohash.org/hello@symfonycasts.com"
+                        </div>
+                    </div>
+                    <div class="col-md-10 no-pad">
+                        <div class="user-pad">
+                            <h3>Welcome back, {{ app.user.username }}</h3>
+                            <h4 class="white"><i class="fa fa-twitter"></i>Twiter</h4>
+                            {#<a class="btn btn-labeled btn-info" href="{{ path('admin_user_edit', {'id': app.user.id}) }}">#}
+                              <span class="btn-label"><i class="fa fa-pencil"></i></span>Update
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row overview">
+                    <div class="col-md-4 user-pad text-center">
+                        <h3>Articles</h3>
+
+                    </div>
+                    <div class="col-md-4 user-pad text-center">
+                        <h3>Titles</h3>
+                    </div>
+                    <div class="col-md-4 user-pad text-center">
+                        <h3>LIKES</h3>
+
+                    </div>
+                </div>
+                <hr>
+                {% for article in articles %}
+                <div class="row overview">
+                    <div class="col-md-4 user-pad text-center">
+                        <h3 style="color: darkblue">{{ articles|length }}</h3>
+
+                    </div>
+                    <div class="col-md-4 user-pad text-center">
+                        <h3 style="color: #1c7430;"><a href="{{ path('admin_article_edit', {'id': article.id }) }}">{{ article.title }}</a></h3>
+
+                    </div>
+                    <div class="col-md-4 user-pad text-center">
+                        <span class="js-like-article-count">{{ article.heartCount }} </span>
+                        <span class="fa fa-heart-o like-article js-like-article"><h3 style="color: red;">{{ article.heartCount }}</h3></span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

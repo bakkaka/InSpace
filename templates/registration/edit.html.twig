@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block title %}Login!{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>Register</h1>
+                <form method="POST" action="{{ path('admin_user_edit', {'id': user.id }) }}" enctype="multipart/form-data">
+                    <input type="file" name="image">
+                    <button type="submit" class="btn btn-primary">Upload!</button>
+                </form>
+
+
+                    {{ form_start(form) }}
+                    {{ form_row(form.username) }}
+                    {{ form_row(form.plainPassword) }}
+                    <div class="checkbox mb-3">
+                        <label>
+                            {{ form_row(form.agreeTerms) }}
+                        </label>
+                    </div>
+
+                    {{ form_end(form) }}
+
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">
+                        Register
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

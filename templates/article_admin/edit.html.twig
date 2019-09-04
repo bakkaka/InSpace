@@ -1,0 +1,31 @@
+{% extends 'content_base.html.twig' %}
+{% block content_body %}
+    <div class="container">
+    <div class="row">
+    <div class="col-sm-6">
+    <h1>Edit the Article! ?</h1>
+
+{% block javascripts %}
+    {{ parent() }}
+
+
+
+{% endblock %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('css/algolia-autocomplete.css') }}">
+{% endblock %}
+
+
+
+    {{ include('article_admin/_form.html.twig', {
+        button_text: 'Update!'
+    }) }}
+    </div>
+    </div>
+    </div>
+
+{% endblock %}

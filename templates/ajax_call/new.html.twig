@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New RepLog{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+{% block body %}
+<div class="col-sm-12">
+    <form method="POST" action="{{ path('ajax_new') }}" enctype="multipart/form-data">
+
+
+        {{ include('ajax_call/_form.html.twig') }}
+
+        <a href="{{ path('ajax_call') }}">back to list</a>
+        {% block javascripts %}
+
+        {% endblock %}
+
+    {% endblock %}
